@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 #include <string.h>
 #include "sockettest.h"
 
@@ -22,5 +23,8 @@ int main(int argc,const char*argv[])
     socket_send(sock, buf);
     memset(buf, 0, BUFFSIZE);
     socket_recv(sock, buf);
-    printf("buf:%s\n", buf);    return 0;
+    printf("buf:%s\n", buf);
+    free(hostname);
+    free(port);
+    return 0;
 }
